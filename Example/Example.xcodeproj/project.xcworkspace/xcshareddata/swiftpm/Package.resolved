@@ -1,0 +1,15 @@
+{
+  "originHash" : "a56172dd2995bf79716fc8e96176c1f878ed9fc817d81c7e792e79a3417422ee",
+  "pins" : [
+    {
+      "identity" : "wwsvgimageview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/William-Weng/WWSVGImageView",
+      "state" : {
+        "revision" : "a7d1edf8317d161610888eee3a30281b8f0654d6",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}
