@@ -2,15 +2,14 @@
 //  File.swift
 //  WWSVGImageView
 //
-//  Created by iOS on 2026/1/30.
+//  Created by William.Weng on 2026/1/30.
 //
 
 import SwiftUI
 
+// MARK: - 給SwiftUI用的
 public struct WWSVGImage: View {
-    
-    typealias HtmlEntities = (key: String, value: String)
-    
+        
     private let svg: String
     
     public init(svg: String) {
