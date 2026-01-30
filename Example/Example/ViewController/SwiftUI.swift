@@ -22,6 +22,7 @@ struct SvgView: View {
                   </circle>
                 </svg>
                 """)
+            .background(Color.yellow)
         }
     }
 }

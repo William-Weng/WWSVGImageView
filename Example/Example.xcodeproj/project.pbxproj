@@ -11,7 +11,8 @@
 		815F103E2F2C9FA100940A48 /* WWSVGImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 815F103D2F2C9FA100940A48 /* WWSVGImageView */; };
 		81BFDB232F2CA00100BEE9D2 /* WWSVGImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 81BFDB222F2CA00100BEE9D2 /* WWSVGImageView */; };
 		81BFDB3C2F2CA02C00BEE9D2 /* WWSVGImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 81BFDB3B2F2CA02C00BEE9D2 /* WWSVGImageView */; };
-		81BFDB3F2F2CA04F00BEE9D2 /* WWSVGImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 81BFDB3E2F2CA04F00BEE9D2 /* WWSVGImageView */; };
+		81BFDB422F2CA17100BEE9D2 /* WWSVGImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 81BFDB412F2CA17100BEE9D2 /* WWSVGImageView */; };
+		81BFDB452F2CA31600BEE9D2 /* WWSVGImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 81BFDB442F2CA31600BEE9D2 /* WWSVGImageView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +48,8 @@
 				815F103E2F2C9FA100940A48 /* WWSVGImageView in Frameworks */,
 				81BFDB232F2CA00100BEE9D2 /* WWSVGImageView in Frameworks */,
 				81BFDB3C2F2CA02C00BEE9D2 /* WWSVGImageView in Frameworks */,
-				81BFDB3F2F2CA04F00BEE9D2 /* WWSVGImageView in Frameworks */,
+				81BFDB422F2CA17100BEE9D2 /* WWSVGImageView in Frameworks */,
+				81BFDB452F2CA31600BEE9D2 /* WWSVGImageView in Frameworks */,
 				815F0FDE2F2C82DF00940A48 /* WWSVGImageView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,7 +97,8 @@
 				815F103D2F2C9FA100940A48 /* WWSVGImageView */,
 				81BFDB222F2CA00100BEE9D2 /* WWSVGImageView */,
 				81BFDB3B2F2CA02C00BEE9D2 /* WWSVGImageView */,
-				81BFDB3E2F2CA04F00BEE9D2 /* WWSVGImageView */,
+				81BFDB412F2CA17100BEE9D2 /* WWSVGImageView */,
+				81BFDB442F2CA31600BEE9D2 /* WWSVGImageView */,
 			);
 			productName = Example;
 			productReference = 817EE1FE2EB1FA050036B57C /* Example.app */;
@@ -126,7 +129,7 @@
 			mainGroup = 817EE1F52EB1FA050036B57C;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				81BFDB3D2F2CA04F00BEE9D2 /* XCRemoteSwiftPackageReference "WWSVGImageView" */,
+				81BFDB432F2CA31600BEE9D2 /* XCRemoteSwiftPackageReference "WWSVGImageView" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 817EE1FF2EB1FA050036B57C /* Products */;
@@ -370,12 +373,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		81BFDB3D2F2CA04F00BEE9D2 /* XCRemoteSwiftPackageReference "WWSVGImageView" */ = {
+		81BFDB432F2CA31600BEE9D2 /* XCRemoteSwiftPackageReference "WWSVGImageView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/William-Weng/WWSVGImageView";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 1.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -397,9 +400,13 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = WWSVGImageView;
 		};
-		81BFDB3E2F2CA04F00BEE9D2 /* WWSVGImageView */ = {
+		81BFDB412F2CA17100BEE9D2 /* WWSVGImageView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 81BFDB3D2F2CA04F00BEE9D2 /* XCRemoteSwiftPackageReference "WWSVGImageView" */;
+			productName = WWSVGImageView;
+		};
+		81BFDB442F2CA31600BEE9D2 /* WWSVGImageView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81BFDB432F2CA31600BEE9D2 /* XCRemoteSwiftPackageReference "WWSVGImageView" */;
 			productName = WWSVGImageView;
 		};
 /* End XCSwiftPackageProductDependency section */

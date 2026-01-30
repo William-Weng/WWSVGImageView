@@ -4,10 +4,10 @@
 
 import WebKit
 
-// MARK; - 使用SVG圖片
+// MARK: - 使用SVG圖片
 open class WWSVGImageView: WKWebView {}
 
-// MARK; - 公開函式
+// MARK: - 公開函式
 public extension WWSVGImageView {
     
     /// 建立WWSVGImageView
@@ -24,7 +24,7 @@ public extension WWSVGImageView {
     }
 }
 
-// MARK; - 公開函式
+// MARK: - 公開函式
 public extension WWSVGImageView {
     
     /// [載入SVG圖片](https://github.com/ZeeZide/SVGWebView)
@@ -35,7 +35,7 @@ public extension WWSVGImageView {
     }
 }
 
-// MARK; - 小工具
+// MARK: - 小工具
 private extension WWSVGImageView {
     
     /// 組合SVG文字
