@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/William-Weng/WWSVGImageView",
       "state" : {
-        "revision" : "a7d1edf8317d161610888eee3a30281b8f0654d6",
-        "version" : "1.0.0"
+        "revision" : "423d57b362390d051e125ea5bafe3331ee222c10",
+        "version" : "1.0.1"
       }
     }
   ],
