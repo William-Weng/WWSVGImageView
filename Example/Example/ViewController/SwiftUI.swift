@@ -21,11 +21,14 @@ struct SvgView: View {
                     <animate attributeName="r" values="40;20;40" dur="2s" repeatCount="indefinite"/>
                   </circle>
                 </svg>
-                """)
+                """
+            )
+            .frame(width: 200, height: 200)
             .background(Color.yellow)
         }
     }
 }
+
 
 #Preview {
     SvgView(color: "rgba(0,255,0,0.5)")

@@ -61,7 +61,7 @@ private extension WKPreferences {
         
         let preferences = WKPreferences()
         preferences.javaScriptCanOpenWindowsAutomatically = javaScriptCanOpenWindowsAutomatically
-
+        
         return preferences
     }
 }

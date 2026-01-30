@@ -11,12 +11,14 @@ import SwiftUI
 public struct WWSVGImage: View {
         
     private let svg: String
-    
-    public init(svg: String) {
+    private let useRWD: Bool
+
+    public init(svg: String, useRWD: Bool = true) {
         self.svg = svg
+        self.useRWD = useRWD
     }
     
     public var body: some View {
-        SVGImage(svg: svg)
+        SVGImage(svg: svg, useRWD: useRWD)
     }
 }

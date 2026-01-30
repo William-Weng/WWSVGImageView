@@ -28,10 +28,32 @@ public extension WWSVGImageView {
 public extension WWSVGImageView {
     
     /// [載入SVG圖片](https://github.com/ZeeZide/SVGWebView)
-    /// - Parameter svg: String
-    func load(svg: String) {
-        let html = "<div style=\"width: 100%; height: 100%; background-color: #0000;\">\(combineSVG(svg))</div>"
-        loadHTMLString(html, baseURL: nil)
+    /// - Parameters:
+    ///   - svg: SVG程式碼
+    ///   - useRWD: [RWD支援](https://medium.com/frochu/html-meta-viewport-setting-69fbb06ed3d8)
+    func load(svg: String, useRWD: Bool = true) {
+        
+        let content = """
+            <div style="width: 100%; height: 100%; background-color: #0000;">\(combineSVG(svg))</div>
+        """
+        
+        let html = """
+        <!DOCTYPE html>
+        <html lang="zh-Hant">
+          <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          </head>
+          <body>
+            \(content)
+          </body>
+        </html>
+        """
+        
+        if useRWD {
+            loadHTMLString(html, baseURL: nil)
+        } else {
+            loadHTMLString(content, baseURL: nil)
+        }
     }
 }
 

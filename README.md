@@ -11,7 +11,7 @@ https://github.com/user-attachments/assets/e05063d4-2614-4cb9-8c62-dc8e0526634f
 ### [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```bash
 dependencies: [
-    .package(url: "https://github.com/William-Weng/WWSVGImageView.git", .upToNextMajor(from: "1.0.1"))
+    .package(url: "https://github.com/William-Weng/WWSVGImageView.git", .upToNextMajor(from: "1.0.2"))
 ]
 ```
 
@@ -19,8 +19,8 @@ dependencies: [
 |函式|功能|
 |-|-|
 |build()|建立WWSVGImageView|
-|load(svg:)|載入SVG圖片|
-|init(svg:)|載入SVG圖片 - SwiftUI|
+|load(svg:useRWD:)|載入SVG圖片|
+|init(svg:useRWD:)|載入SVG圖片 - SwiftUI|
 
 ### Example 1
 ```swift
@@ -35,17 +35,19 @@ final class ViewController: UIViewController {
                 <animate attributeName="r" values="40;20;40" dur="2s" repeatCount="indefinite"/>
             </circle>
         </svg>
-        """
+    """
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let imageView = WWSVGImageView.build()
         
-        imageView.frame = view.bounds
-        imageView.load(svg: svg)
+        imageView.frame = .init(origin: .zero, size: .init(width: 200, height: 200))
+        imageView.backgroundColor = .yellow
+        imageView.center = view.center
         
         view.addSubview(imageView)
+        imageView.load(svg: svg)
     }
 }
 ```
@@ -68,7 +70,9 @@ struct SvgView: View {
                     <animate attributeName="r" values="40;20;40" dur="2s" repeatCount="indefinite"/>
                   </circle>
                 </svg>
-                """)
+                """
+            )
+            .frame(width: 200, height: 200)
             .background(Color.yellow)
         }
     }

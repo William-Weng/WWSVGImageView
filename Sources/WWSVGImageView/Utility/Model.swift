@@ -29,6 +29,7 @@ extension WWSVGImage {
         typealias UIViewType = WWSVGImageView
         
         let svg : String
+        let useRWD: Bool
         
         func makeUIView(context: Context) -> UIViewType {
             return WWSVGImageView.build()
