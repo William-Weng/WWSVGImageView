@@ -1,6 +1,15 @@
 {
-  "originHash" : "a56172dd2995bf79716fc8e96176c1f878ed9fc817d81c7e792e79a3417422ee",
+  "originHash" : "48c35a372c8faadea110ec2084a26bccb37fd6ff5110d6675386e64d2107880d",
   "pins" : [
+    {
+      "identity" : "wwnetworking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/William-Weng/WWNetworking",
+      "state" : {
+        "revision" : "d78dee659735d1123c1f5296330d0e3a5a612e2b",
+        "version" : "2.1.4"
+      }
+    },
     {
       "identity" : "wwsvgimageview",
       "kind" : "remoteSourceControl",

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8140FA642F32DE1500141EE1 /* WWNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 8140FA632F32DE1500141EE1 /* WWNetworking */; };
 		815F0FDE2F2C82DF00940A48 /* WWSVGImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 815F0FDD2F2C82DF00940A48 /* WWSVGImageView */; };
 		815F103E2F2C9FA100940A48 /* WWSVGImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 815F103D2F2C9FA100940A48 /* WWSVGImageView */; };
 		81BFDB232F2CA00100BEE9D2 /* WWSVGImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 81BFDB222F2CA00100BEE9D2 /* WWSVGImageView */; };
@@ -48,6 +49,7 @@
 			files = (
 				815F103E2F2C9FA100940A48 /* WWSVGImageView in Frameworks */,
 				81BFDB232F2CA00100BEE9D2 /* WWSVGImageView in Frameworks */,
+				8140FA642F32DE1500141EE1 /* WWNetworking in Frameworks */,
 				81BFDB3C2F2CA02C00BEE9D2 /* WWSVGImageView in Frameworks */,
 				81BFDB422F2CA17100BEE9D2 /* WWSVGImageView in Frameworks */,
 				81BFDB612F2CB92700BEE9D2 /* WWSVGImageView in Frameworks */,
@@ -102,6 +104,7 @@
 				81BFDB412F2CA17100BEE9D2 /* WWSVGImageView */,
 				81BFDB472F2CA3C000BEE9D2 /* WWSVGImageView */,
 				81BFDB602F2CB92700BEE9D2 /* WWSVGImageView */,
+				8140FA632F32DE1500141EE1 /* WWNetworking */,
 			);
 			productName = Example;
 			productReference = 817EE1FE2EB1FA050036B57C /* Example.app */;
@@ -133,6 +136,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				81BFDB5F2F2CB92700BEE9D2 /* XCRemoteSwiftPackageReference "WWSVGImageView" */,
+				8140FA622F32DE1500141EE1 /* XCRemoteSwiftPackageReference "WWNetworking" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 817EE1FF2EB1FA050036B57C /* Products */;
@@ -376,6 +380,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8140FA622F32DE1500141EE1 /* XCRemoteSwiftPackageReference "WWNetworking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/William-Weng/WWNetworking";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.4;
+			};
+		};
 		81BFDB5F2F2CB92700BEE9D2 /* XCRemoteSwiftPackageReference "WWSVGImageView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/William-Weng/WWSVGImageView";
@@ -387,6 +399,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8140FA632F32DE1500141EE1 /* WWNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8140FA622F32DE1500141EE1 /* XCRemoteSwiftPackageReference "WWNetworking" */;
+			productName = WWNetworking;
+		};
 		815F0FDD2F2C82DF00940A48 /* WWSVGImageView */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = WWSVGImageView;

@@ -6,7 +6,7 @@
 - [Simple use of SVG images.](https://github.com/ZeeZide/SVGWebView)
 - [簡單的使用SVG圖片。](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/將-svg-變成-uibezierpath-c9a6cd5b69ba)
 
-https://github.com/user-attachments/assets/755e2dc0-8054-4e0b-b831-85f16ffdc99c
+https://github.com/user-attachments/assets/a4992ec7-b3c1-4c5a-82e1-0e1e93724832
 
 ### [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```bash
@@ -24,16 +24,26 @@ dependencies: [
 
 ### Example - UIKit
 ```swift
+//
+//  ViewController.swift
+//  Example
+//
+//  Created by William.Weng on 2026/1/30.
+//
+
 import UIKit
 import WWSVGImageView
+import WWNetworking
 
 final class ViewController: UIViewController {
+    
+    private var svgImageView: WWSVGImageView!
     
     private let svg = """
     <svg viewBox="0 0 160 160" width="160" height="160">
         <circle cx="80" cy="80" r="50" fill="#67AAF9" />
         <g transform="matrix(0.866, -0.5, 0.25, 0.433, 80, 80)">
-            <path d="M 0,70 A 65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#FFF">
+            <path d="M 0,70 A 65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#F00">
                 <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="1s" repeatCount="indefinite" />
             </path>
         </g>
@@ -41,16 +51,51 @@ final class ViewController: UIViewController {
     </svg>
     """
     
+    private let svgUrl = "https://xyris.app/wp-content/uploads/2024/11/day-tripper.svg"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadSVGFromLocal()
+    }
+    
+    @IBAction func downloadUrl(_ sender: UIBarButtonItem) {
+        loadSVGFromURL(svgUrl)
+    }
+}
+
+private extension ViewController {
+    
+    func loadSVGFromLocal() {
         
-        let imageView = WWSVGImageView.build()
+        svgImageView = WWSVGImageView.build()
         
-        imageView.frame = .init(origin: .zero, size: .init(width: 320, height: 320))
-        imageView.center = view.center
+        svgImageView.frame = .init(origin: .zero, size: .init(width: view.bounds.width, height: 320))
+        svgImageView.center = view.center
         
-        view.addSubview(imageView)
-        imageView.load(svg: svg)
+        view.addSubview(svgImageView)
+        svgImageView.load(svg: svg)
+    }
+    
+    func loadSVGFromURL(_ urlString: String) {
+                
+        Task {
+            await WWNetworking.shared.download(urlString: urlString, progress: { info in
+                print(Float(info.totalWritten) / Float(info.totalSize))
+            }, completion: { result in
+                switch result {
+                case .failure(let error): print(error)
+                case .success(let info):
+                    
+                    guard let data = info.data,
+                          let svg = String(data: data, encoding: .utf8)
+                    else {
+                        return
+                    }
+                    
+                    self.svgImageView.load(svg: svg)
+                }
+            })
+        }
     }
 }
 ```
