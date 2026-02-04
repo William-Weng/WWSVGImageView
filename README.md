@@ -24,13 +24,6 @@ dependencies: [
 
 ### Example - UIKit
 ```swift
-//
-//  ViewController.swift
-//  Example
-//
-//  Created by William.Weng on 2026/1/30.
-//
-
 import UIKit
 import WWSVGImageView
 import WWNetworking
