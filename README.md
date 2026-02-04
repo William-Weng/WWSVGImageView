@@ -15,7 +15,7 @@ dependencies: [
 ]
 ```
 
-### 可用函式 (Function)
+### [可用函式](https://xyris.app/blog/how-to-animate-svg-without-css-or-javascript/)
 |函式|功能|
 |-|-|
 |build()|建立WWSVGImageView|
