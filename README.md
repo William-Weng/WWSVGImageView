@@ -6,7 +6,7 @@
 - [Simple use of SVG images.](https://github.com/ZeeZide/SVGWebView)
 - [簡單的使用SVG圖片。](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/將-svg-變成-uibezierpath-c9a6cd5b69ba)
 
-https://github.com/user-attachments/assets/a0add1a7-8a47-46f7-9f6f-76e54abe602b
+https://github.com/user-attachments/assets/755e2dc0-8054-4e0b-b831-85f16ffdc99c
 
 ### [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```bash
@@ -22,7 +22,7 @@ dependencies: [
 |load(svg:useRWD:)|載入SVG圖片|
 |init(svg:useRWD:)|載入SVG圖片 - SwiftUI|
 
-### Example 1
+### Example - UIKit
 ```swift
 import UIKit
 import WWSVGImageView
@@ -30,11 +30,15 @@ import WWSVGImageView
 final class ViewController: UIViewController {
     
     private let svg = """
-        <svg viewBox= "0 0 100 100">
-            <circle cx="50" cy="50" r="40" fill="gold">
-                <animate attributeName="r" values="40;20;40" dur="2s" repeatCount="indefinite"/>
-            </circle>
-        </svg>
+    <svg viewBox="0 0 160 160" width="160" height="160">
+        <circle cx="80" cy="80" r="50" fill="#67AAF9" />
+        <g transform="matrix(0.866, -0.5, 0.25, 0.433, 80, 80)">
+            <path d="M 0,70 A 65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#FFF">
+                <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="1s" repeatCount="indefinite" />
+            </path>
+        </g>
+        <path d="M 50,0 A 50,50 0 0,0 -50,0Z" transform="matrix(0.866, -0.5, 0.5, 0.866, 80, 80)" fill="#67AAF9"/>
+    </svg>
     """
     
     override func viewDidLoad() {
@@ -42,8 +46,7 @@ final class ViewController: UIViewController {
         
         let imageView = WWSVGImageView.build()
         
-        imageView.frame = .init(origin: .zero, size: .init(width: 200, height: 200))
-        imageView.backgroundColor = .yellow
+        imageView.frame = .init(origin: .zero, size: .init(width: 320, height: 320))
         imageView.center = view.center
         
         view.addSubview(imageView)
@@ -52,8 +55,15 @@ final class ViewController: UIViewController {
 }
 ```
 
-### Example 2
+### Example - SwiftUI
 ```swift
+//
+//  SwiftUI.swift
+//  Example
+//
+//  Created by William.Weng on 2026/1/30.
+//
+
 import SwiftUI
 import WWSVGImageView
 
@@ -63,22 +73,26 @@ struct SvgView: View {
     
     var body: some View {
         
+        let svg = """
+            <svg viewBox="0 0 160 160" width="160" height="160">
+                <circle cx="80" cy="80" r="50" fill="\(color)" />
+                <g transform="matrix(0.866, -0.5, 0.25, 0.433, 80, 80)">
+                <path d="M 0,70 A 65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#FFF">
+                    <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="1s" repeatCount="indefinite" />
+                </path></g>
+                <path d="M 50,0 A 50,50 0 0,0 -50,0Z" transform="matrix(0.866, -0.5, 0.5, 0.866, 80, 80)" fill="\(color)"/>
+            </svg>
+        """
+        
         ZStack {
-            WWSVGImage(svg: """
-                <svg viewBox= "0 0 100 100">
-                  <circle cx="50" cy="50" r="40" fill="\(color)">
-                    <animate attributeName="r" values="40;20;40" dur="2s" repeatCount="indefinite"/>
-                  </circle>
-                </svg>
-                """
-            )
-            .frame(width: 200, height: 200)
-            .background(Color.yellow)
+            WWSVGImage(svg: svg)
+            .frame(width: 320, height: 320)
+            .background(Color.black)
         }
     }
 }
 
 #Preview {
-    SvgView(color: "rgba(0,255,0,0.5)")
+    SvgView(color: "#67AAF9")
 }
 ```
