@@ -72,24 +72,28 @@ private extension ViewController {
     func loadSVGFromURL(_ urlString: String) {
                 
         Task {
-            await WWNetworking.shared.download(urlString: urlString, progress: { info in
-                print(Float(info.totalWritten) / Float(info.totalSize))
-            }, completion: { result in
-                switch result {
-                case .failure(let error): print(error)
-                case .success(let info):
+            do {
+                for try await state in await WWNetworking.shared.download(urlString: urlString) {
                     
-                    guard let data = info.data,
-                          let svg = String(data: data, encoding: .utf8)
-                    else {
-                        return
+                    switch state {
+                    case .start(let task): print(task)
+                    case .progress(let progress): print(Float(progress.totalWritten) / Float(progress.totalSize))
+                    case .finished(let info):
+                        
+                        guard let data = info.data,
+                              let svg = String(data: data, encoding: .utf8)
+                        else {
+                            return
+                        }
+                        
+                        svgImageView.load(svg: svg)
                     }
-                    
-                    self.svgImageView.load(svg: svg)
                 }
-            })
+            } catch {
+                print(error)
+            }
         }
-    }
+    }    
 }
 ```
 
