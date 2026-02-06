@@ -99,13 +99,6 @@ private extension ViewController {
 
 ### Example - SwiftUI
 ```swift
-//
-//  SwiftUI.swift
-//  Example
-//
-//  Created by William.Weng on 2026/1/30.
-//
-
 import SwiftUI
 import WWSVGImageView
 
